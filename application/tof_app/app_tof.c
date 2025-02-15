@@ -135,8 +135,8 @@ static void MX_53L8A1_SimpleRanging_Process(void)
   Profile.RangingProfile = RS_PROFILE_8x8_CONTINUOUS;
   Profile.TimingBudget = TIMING_BUDGET;
   Profile.Frequency = RANGING_FREQUENCY; /* Ranging frequency Hz (shall be consistent with TimingBudget value) */
-  Profile.EnableAmbient = 0; /* Enable: 1, Disable: 0   »·¾³¹âÇ¿¶È  */
-  Profile.EnableSignal = 0; /* Enable: 1, Disable: 0    ÐÅºÅ */
+  Profile.EnableAmbient = 0; /* Enable: 1, Disable: 0   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½  */
+  Profile.EnableSignal = 0; /* Enable: 1, Disable: 0    ï¿½Åºï¿½ */
 
   /* set the profile if different from default one */
   VL53L8A1_RANGING_SENSOR_ConfigProfile(VL53L8A1_DEV_CENTER, &Profile);
@@ -205,7 +205,7 @@ static void print_result(RANGING_SENSOR_Result_t *Result)
     {
       printf("|                 ");
     }
-    printf("|\n");
+    printf("|\r\n");
 
     for (l = 0; l < RANGING_SENSOR_NB_TARGET_PER_ZONE; l++)
     {
@@ -219,7 +219,7 @@ static void print_result(RANGING_SENSOR_Result_t *Result)
         else
           printf("| %5s  :  %5s ", "X", "X");
       }
-      printf("|\n");
+      printf("|\r\n");
 
       if ((Profile.EnableAmbient != 0) || (Profile.EnableSignal != 0))
       {
@@ -308,14 +308,14 @@ static void display_commands_banner(void)
   /* clear screen */
   printf("%c[2H", 27);
 
-  printf("53L8A1 Simple Ranging demo application\n");
-  printf("--------------------------------------\n\n");
+  printf("53L8A1 Simple Ranging demo application\r\n");
+  printf("--------------------------------------\r\n");
 
-  printf("Use the following keys to control application\n");
-  printf(" 'r' : change resolution\n");
-  printf(" 's' : enable signal and ambient\n");
-  printf(" 'c' : clear screen\n");
-  printf("\n");
+  printf("Use the following keys to control application\r\n");
+  printf(" 'r' : change resolution\r\n");
+  printf(" 's' : enable signal and ambient\r\n");
+  printf(" 'c' : clear screen\r\n");
+  printf("\r\n");
 }
 
 static void handle_cmd(uint8_t cmd)
